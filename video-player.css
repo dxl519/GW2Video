@@ -1,0 +1,77 @@
+.h-120{
+    height: 30rem;
+}
+
+.button {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 255, 255, 0.5);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* 视频结束显示屏 */
+.end-screen {
+    display: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* 给视频播放器容器设置固定尺寸 */
+.video-container {
+    width: 800px;
+}
+
+video {
+    width: 100% !important;
+    /* 确保视频充满整个容器 */
+    height: 100% !important;
+    object-fit: cover;
+    /* 覆盖整个容器，可能会裁切一部分视频内容 */
+}
+
+/* 基础样式 */
+.video-list ul {
+    padding: 0;
+    margin: 0;
+}
+
+.video-list li {
+    cursor: pointer;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    transition: background-color 0.3s;
+}
+
+.video-list li:hover {
+    background-color: #666;
+    /* 更深的悬停颜色 */
+}
+
+/* 高亮当前播放的视频 */
+.video-list li.active {
+    background-color: #444;
+    /* 当前播放视频的背景颜色 */
+    color: #00FFFF;
+    /* 字体颜色 */
+    font-weight: bold;
+}
