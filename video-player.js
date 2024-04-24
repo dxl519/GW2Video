@@ -40,11 +40,20 @@ function replayVideo() {
   replayButton.style.display = "none";
 }
 
-function changeVideo(sourceUrl) {
+function changeVideo(sourceUrl, title) {
+  const videoElement = document.getElementById("videoPlayer");
   const source = videoElement.getElementsByTagName("source")[0];
   source.src = sourceUrl;
   videoElement.load();
   videoElement.play();
   endScreen.style.display = "none";
-  //   document.title = title;
+
+  // 更新列表项的样式
+  const playlistItems = document.querySelectorAll("#playlist li");
+  playlistItems.forEach((item) => {
+    item.classList.remove("text-white", "bg-blue-500", "shadow-xl"); // 移除所有活跃状态
+    if (item.getAttribute("onclick").includes(sourceUrl)) {
+      item.classList.add("text-white", "bg-blue-500", "shadow-xl"); // 添加活跃状态到当前视频
+    }
+  });
 }
